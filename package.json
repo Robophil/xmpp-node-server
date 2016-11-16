@@ -1,0 +1,22 @@
+{
+  "name": "custom-server",
+  "version": "1.0.0",
+  "description": "A xmpp server for blue-collar chat prototype",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "xmpp"
+  ],
+  "author": "Samuel Agbonkpolo (samuelagm@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "hat": "0.0.3",
+    "node-xmpp-client": "^3.0.4",
+    "node-xmpp-core": "^5.0.4",
+    "node-xmpp-server": "^2.2.2",
+    "ws": "^1.1.1"
+  }
+}
