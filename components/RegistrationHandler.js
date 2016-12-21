@@ -5,6 +5,7 @@ class RegistrationHandler extends BaseRegistrationHandler_1.BaseRegistrationHand
         super(messageService);
     }
     onRegistration(options, callback) {
+        super.onRegistration(options, callback);
         console.log('REGISTER');
         console.log(callback);
         callback(false);

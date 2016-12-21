@@ -11,6 +11,7 @@ export default class RegistrationHandler extends BaseRegistrationHandler {
     }
 
     onRegistration(options: any, callback: Function): void {
+        super.onRegistration(options, callback);
         console.log('REGISTER');
         console.log(callback);
         callback(false)
