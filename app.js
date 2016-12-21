@@ -1,6 +1,5 @@
 'use strict'
 
-var xmpp = require('./index');
 var debug = console.log;
 var Stanza = require('node-xmpp-core').Stanza;
 var IQ = require('node-xmpp-core').IQ;
@@ -50,7 +49,7 @@ var startServer = function (done) {
         client.on('register', function (opts, cb) {
             console.log('REGISTER');
             console.log(cb);
-            cb(false)
+            cb(false);
         });
 
         // Allows the developer to authenticate users against anything they want.
@@ -59,14 +58,14 @@ var startServer = function (done) {
             if (opts.password === 'secret') {
                 //console.log('server:', opts.username, 'AUTH OK')
                 cb(null, opts)
-            }
-            else {
+            } else {
                 //console.log('server:', opts.username, 'AUTH FAIL')
-                cb(false)
+                cb(false);
             }
         });
 
         client.on('online', function () {
+            console.log(client);
             userJid = client.jid.user + '@' + client.jid.domain + '/' + client.jid.resource;
             console.log(userJid + 'ONLINE');
 
@@ -85,7 +84,7 @@ var startServer = function (done) {
 
         // Stanza handling
         client.on('stanza', function (stanza) {
-            console.log("Message", stanza);
+            //console.log("Message", stanza);
             if (stanza.is('message') && (stanza.attrs.type !== 'error')) {
                 if (clientsHandles[stanza.attrs.to]) {
                     clientsHandles[stanza.attrs.to].send(stanza);
@@ -93,16 +92,16 @@ var startServer = function (done) {
             }
             else if (stanza.is('presence')) {
                 // We loop through the user list
-                console.log("Presnse", stanza);
+                //console.log("Presnse", stanza);
                 for (var j = 0; j < connectedUsers.length; j++) {
-                    console.log(stanza.toString());
+                    //console.log(stanza.toString());
                     var jid = connectedUsers[j];
                     stanza.to = jid;
                     clientsHandles[jid].send(stanza);
                 }
             }
             else if (stanza.is('iq') && stanza.attrs.type == 'get') {
-                console.log("IQ", stanza);
+                //console.log("IQ", stanza);
                 for (var i = 0; i < stanza.children.length; i++) {
                     if (stanza.children[i].name == 'query' && stanza.children[i].attrs.xmlns == 'jabber:iq:roster') {
 
@@ -130,7 +129,6 @@ var startServer = function (done) {
                 delete clientsHandles[userJid];
             }
         });
-
     });
 
 

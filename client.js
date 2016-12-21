@@ -1,7 +1,7 @@
 /**
  * Created by Samuel on 19/10/2016.
  */
-var xmpp = require('./index')
+
 var c2s = null
 var debug = console.log//require('debug')('server-and-client')
 var Client = require('node-xmpp-client');

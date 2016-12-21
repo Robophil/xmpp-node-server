@@ -2,13 +2,14 @@
  * Created by Samuel on 19/10/2016.
  */
 
-var xmpp = require('./index')
-var c2s = null
+var c2s = null;
 var debug = console.log//require('debug')('server-and-client')
 var Client = require('node-xmpp-client');
+var randomWords = require('random-words');
+
 var Stanza = require('node-xmpp-core').Stanza;
 var IQ = require('node-xmpp-core').IQ;
-var randomWords = require('random-words');
+var xmpp = require('node-xmpp-server');
 
 startClient = function () {
 

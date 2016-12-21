@@ -12,11 +12,13 @@
   "author": "Samuel Agbonkpolo (samuelagm@gmail.com)",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "0.0.2",
     "debug": "^2.2.0",
     "hat": "0.0.3",
     "node-xmpp-client": "^3.0.4",
     "node-xmpp-core": "^5.0.4",
     "node-xmpp-server": "^2.2.2",
+    "require-all": "^2.0.0",
     "ws": "^1.1.1"
   }
 }
